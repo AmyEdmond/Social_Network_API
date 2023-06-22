@@ -107,7 +107,7 @@ const thoughtController = {
   // delete reaction
   async deleteReaction(req, res) {
     try {
-      const thought = await thought.findOneAndUpdate(
+      const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
         { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }
