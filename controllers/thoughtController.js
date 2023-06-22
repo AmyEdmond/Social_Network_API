@@ -109,7 +109,7 @@ const thoughtController = {
     try {
       const thought = await thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $pull: { reactions: { reactionsd: req.params.reactionsId } } },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }
       );
 

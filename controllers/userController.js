@@ -95,14 +95,14 @@ const userController = {
     try {
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $pull: { friend: { friendId: req.params.friendId } } },
+        { $pull: { friend: req.params.friendId } },
         { runValidators: true, new: true }
       );
 
       if (!user) {
         return res
           .status(404)
-          .json({ message: "No user found with that ID" });
+          .json({ message: "No friend found with that ID" });
       }
 
       res.json(user);
